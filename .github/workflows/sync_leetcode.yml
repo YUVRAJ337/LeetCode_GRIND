@@ -3,7 +3,7 @@ name: Sync Leetcode
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 8 * * 6"
+    - cron: "0 8 * * *"
 
 jobs:
   build:
@@ -14,8 +14,8 @@ jobs:
         uses: joshcai/leetcode-sync@v1.7
         with:
           github-token: ${{ github.token }}
-          leetcode-csrf-token: ${{ 8goqy9GOrxOgtwV21fAzsCwyRi3YQZ2G }}
-          leetcode-session: ${{ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfYXV0aF91c2VyX2lkIjoiMTM3NTM0MzIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJhbGxhdXRoLmFjY291bnQuYXV0aF9iYWNrZW5kcy5BdXRoZW50aWNhdGlvbkJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJmZjliZjk4MWY1NzhkNDg0ZmJiM2I3MTgzODA1YmUxYTkzNzdjNGU3NWQ3NzgwNWExMzVmMmVlZWNlNGI3ZTFhIiwic2Vzc2lvbl91dWlkIjoiMTNmYmVlMjUiLCJpZCI6MTM3NTM0MzIsImVtYWlsIjoic3l1dnJhanNpbmdoNzFAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzWXV2cmFqc2luZ2giLCJ1c2VyX3NsdWciOiJzWXV2cmFqc2luZ2giLCJhdmF0YXIiOiJodHRwczovL2Fzc2V0cy5sZWV0Y29kZS5jb20vdXNlcnMvZGVmYXVsdF9hdmF0YXIuanBnIiwicmVmcmVzaGVkX2F0IjoxNzgzNTMwOTI5LCJpcCI6IjI0MDU6MjAxOjVjMWM6NTAyZTpiY2MwOjk4ZDM6YjZmOToxYjQzIiwiaWRlbnRpdHkiOiIzY2Q4ZWY1Mzg1MDE0NmU0NGIyM2YyMzI2MGI2ZTI0YyIsImRldmljZV93aXRoX2lwIjpbImM0NGRmN2NkNDAxMmRiYWNmZTdiNGM0NTcxMjljNTMxIiwiMjQwNToyMDE6NWMxYzo1MDJlOmJjYzA6OThkMzpiNmY5OjFiNDMiXSwiX3Nlc3Npb25fZXhwaXJ5IjoxMjA5NjAwfQ.089JKqP2aYdJV4tDJrWxuJyfSBOu5TU5sfcWzeLXNzY }}
+          leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
+          leetcode-session: ${{ secrets.LEETCODE_SESSION }}
           destination-folder: my-folder
           verbose: true
           commit-header: "[LeetCode Sync]"
